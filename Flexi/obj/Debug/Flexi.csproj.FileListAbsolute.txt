@@ -77,5 +77,7 @@ C:\Users\asuth\OneDrive\Documents\Flexi\Flexi\obj\Debug\res\drawable\flexi.png
 C:\Users\asuth\OneDrive\Documents\Flexi\Flexi\obj\Debug\res\drawable\cross.png
 C:\Users\asuth\OneDrive\Documents\Flexi\Flexi\obj\Debug\res\drawable\exclaim.png
 C:\Users\asuth\OneDrive\Documents\Flexi\Flexi\obj\Debug\res\drawable\tick.png
+C:\Users\asuth\OneDrive\Documents\Flexi\Flexi\obj\Debug\res\drawable\in.png
+C:\Users\asuth\OneDrive\Documents\Flexi\Flexi\obj\Debug\res\drawable\out.png
 C:\Users\asuth\OneDrive\Documents\Flexi\Flexi\obj\Debug\Flexi.dll.mdb
 C:\Users\asuth\OneDrive\Documents\Flexi\Flexi\bin\Debug\Flexi.dll.mdb

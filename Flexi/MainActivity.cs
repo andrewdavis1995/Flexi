@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Timers;
 using Android.App;
 using Android.Content.PM;
@@ -26,6 +27,12 @@ namespace Flexi
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
             ActionBar.Hide();
+
+            var appPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+            var fullPath = Path.Combine(appPath, "Flexi");
+            Directory.CreateDirectory(fullPath);
+
+            _dayList = new DataLoader().ReadAllFiles();
 
             AssignEventHandlers();
 
@@ -65,6 +72,7 @@ namespace Flexi
         {
             var minTarget = new TimeSpan(30, 0, 0);
             var avTarget = new TimeSpan(37, 0, 0);
+
             // Testing Values
             //var minTarget = new TimeSpan(0, 0, 10);
             //var avTarget = new TimeSpan(0, 0, 20);
@@ -98,13 +106,17 @@ namespace Flexi
 
         private void AssignEventHandlers()
         {
-            FindViewById<Button>(Resource.Id.cmdIn).Click += SignIn;
-            FindViewById<Button>(Resource.Id.cmdOut).Click += SignOut;
+            FindViewById<ImageView>(Resource.Id.cmdIn).Click += SignIn;
+            FindViewById<ImageView>(Resource.Id.cmdOut).Click += SignOut;
         }
 
         private void SignIn(object sender, EventArgs eventArgs)
         {
-            _dayList.Add(new Day(DateTime.Now, DateTime.Now));
+            if (_dayList[_dayList.Count - 1].Done)
+            {
+                _dayList.Add(new Day(DateTime.Now, DateTime.Now));
+            }
+            new DataWriter().WriteAllToFile(_dayList);
         }
 
         private void SignOut(object sender, EventArgs eventArgs)
@@ -112,6 +124,7 @@ namespace Flexi
             if (_dayList.Count <= 0) return;
             _dayList[_dayList.Count - 1].Done = true;
             _dayList[_dayList.Count - 1].EndTime = DateTime.Now;
+            new DataWriter().WriteAllToFile(_dayList);
         }
         
     }

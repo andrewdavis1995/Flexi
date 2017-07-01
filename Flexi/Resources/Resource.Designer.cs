@@ -57,7 +57,13 @@ namespace Flexi
 			public const int Icon = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int tick = 2130837508;
+			public const int @in = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int @out = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int tick = 2130837510;
 			
 			static Drawable()
 			{

@@ -14,7 +14,7 @@ using Java.Util;
 
 namespace Flexi.Assets.Models
 {
-    internal class Day
+    public class Day
     {
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
