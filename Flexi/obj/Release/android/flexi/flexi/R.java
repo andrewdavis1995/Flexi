@@ -11,14 +11,26 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int icon=0x7f020000;
+        public static final int cross=0x7f020000;
+        public static final int exclaim=0x7f020001;
+        public static final int flexi=0x7f020002;
+        public static final int icon=0x7f020003;
+        public static final int in=0x7f020004;
+        public static final int out=0x7f020005;
+        public static final int tick=0x7f020006;
     }
     public static final class id {
-        public static final int cmdIn=0x7f050001;
-        public static final int cmdOut=0x7f050002;
-        public static final int gridLayout1=0x7f050000;
-        public static final int txtSession=0x7f050004;
-        public static final int txtTimeThisWeek=0x7f050003;
+        public static final int cmdIn=0x7f050002;
+        public static final int cmdOut=0x7f050003;
+        public static final int displayHolders=0x7f050006;
+        public static final int gridLayout1=0x7f050001;
+        public static final int gridWeekProgress=0x7f050007;
+        public static final int imageView1=0x7f050000;
+        public static final int imgWeekIcon=0x7f050008;
+        public static final int textView1=0x7f050009;
+        public static final int txtSession=0x7f050005;
+        public static final int txtTimeThisWeek=0x7f050004;
+        public static final int txtWeekMsg=0x7f05000a;
     }
     public static final class layout {
         public static final int main=0x7f030000;

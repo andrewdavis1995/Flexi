@@ -24,23 +24,23 @@
         android:rowCount="1">
         <ImageView
             android:id="@+id/cmdIn"
-            android:layout_width="wrap_content"
+            android:layout_width="100px"
             android:layout_columnWeight="1"
             android:layout_height="match_parent"
-            android:background="#3587A2"
-            android:layout_margin="10dp"
-            android:layout_marginRight="5dp"
+            android:layout_margin="20px"
+            android:layout_marginRight="10px"
             android:src="@drawable/in"
-            android:scaleType="centerInside"
+            android:background="#3587A2"
             android:padding="10dp" />
         <ImageView
             android:id="@+id/cmdOut"
-            android:layout_width="wrap_content"
+            android:layout_width="100px"
             android:layout_columnWeight="1"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="5dp"
-            android:src="@drawable/icon"
+            android:layout_margin="20px"
+            android:layout_marginRight="10px"
+            android:src="@drawable/out"
+            android:scaleType="centerInside"
             android:padding="10dp"
             android:background="#3587A2" />
     </GridLayout>

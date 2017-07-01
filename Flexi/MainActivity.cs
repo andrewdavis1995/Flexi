@@ -6,6 +6,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Widget;
 using Android.OS;
+using Android.Views;
 using Flexi.Assets.Controllers;
 using Flexi.Assets.Models;
 
@@ -108,6 +109,32 @@ namespace Flexi
         {
             FindViewById<ImageView>(Resource.Id.cmdIn).Click += SignIn;
             FindViewById<ImageView>(Resource.Id.cmdOut).Click += SignOut;
+
+            var width = Resources.DisplayMetrics.WidthPixels;
+            var availableWidth = width - 20 - 10 - 10 - 20; // (margins)
+            var buttonWidth = availableWidth/2;
+
+            var lpIn = new GridLayout.LayoutParams
+            {
+                Width = buttonWidth,
+                LeftMargin = 20,
+                RightMargin = 10,
+                TopMargin = 20,
+                BottomMargin = 10,
+                Height = GridLayout.LayoutParams.MatchParent
+            };
+            var lpOut = new GridLayout.LayoutParams
+            {
+                Width = buttonWidth,
+                LeftMargin = 10,
+                RightMargin = 20,
+                TopMargin = 20,
+                BottomMargin = 10,
+                Height = GridLayout.LayoutParams.MatchParent
+            };
+
+            FindViewById<ImageView>(Resource.Id.cmdIn).LayoutParameters = lpIn;
+            FindViewById<ImageView>(Resource.Id.cmdOut).LayoutParameters = lpOut;
         }
 
         private void SignIn(object sender, EventArgs eventArgs)
