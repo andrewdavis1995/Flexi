@@ -16,38 +16,75 @@ namespace Flexi
         private List<Day> _dayList = new List<Day>();
         private TimeHandler _timeHandler = new TimeHandler();
         private TextView _timeText;
+        private TextView _weekLabel;
+        private ImageView _weekIcon;
+        private TextView _sessionText;
         private Timer _timer;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
+            ActionBar.Hide();
 
             AssignEventHandlers();
 
-            AddSampleData();
+            //AddSampleData();
 
             _timeText = FindViewById<TextView>(Resource.Id.txtTimeThisWeek);
+            _sessionText = FindViewById<TextView>(Resource.Id.txtSession);
+            _weekLabel = FindViewById<TextView>(Resource.Id.txtWeekMsg);
+            _weekIcon = FindViewById<ImageView>(Resource.Id.imgWeekIcon);
+
             _timer = new Timer {Interval = 1000};
             _timer.Elapsed += TimerUpdate;
             _timer.Start();
 
             var weekTime = _timeHandler.GetCurrentWeekTime(_dayList);
-
-            _timeText.Text = _timeText.Text = new TextHandler().FormatTime(weekTime);
+            SetWeekValues(weekTime);
+            _timeText.Text = _timeText.Text = "This week: " + new TextHandler().FormatTime(weekTime);
         }
 
         private void TimerUpdate(object sender, ElapsedEventArgs elapsedEventArgs)
         {
-
             var day = _dayList[_dayList.Count - 1];
-            if (!day.Done)
-            {
-                day.EndTime = DateTime.Now;
+            if (day.Done) return;
 
-                var weekTime = _timeHandler.GetCurrentWeekTime(_dayList);
-                RunOnUiThread(() => _timeText.Text = new TextHandler().FormatTime(weekTime));
+            day.EndTime = DateTime.Now;
+
+            var weekTime = _timeHandler.GetCurrentWeekTime(_dayList);
+            RunOnUiThread(() => _timeText.Text = "This week: " + new TextHandler().FormatTime(weekTime));
+
+            var sessionTime = day.EndTime - day.StartTime;
+            RunOnUiThread(() => _sessionText.Text = "This session: " + new TextHandler().FormatTime(sessionTime));
+
+            SetWeekValues(weekTime);
+        }
+
+        private void SetWeekValues(TimeSpan weekTime)
+        {
+            var minTarget = new TimeSpan(30, 0, 0);
+            var avTarget = new TimeSpan(37, 0, 0);
+            // Testing Values
+            //var minTarget = new TimeSpan(0, 0, 10);
+            //var avTarget = new TimeSpan(0, 0, 20);
+
+            if (weekTime <= minTarget)
+            {
+                RunOnUiThread(() =>_weekIcon.SetImageResource(Resource.Drawable.cross));
+                RunOnUiThread(() => _weekLabel.Text = "You have not reached your weekly hours target yet");        
             }
+            else if (weekTime <= avTarget)
+            {
+                RunOnUiThread(() => _weekIcon.SetImageResource(Resource.Drawable.exclaim));
+                RunOnUiThread(() => _weekLabel.Text = "You have reached the minimum allowance for this week");
+            }
+            else
+            {
+                RunOnUiThread(() => _weekIcon.SetImageResource(Resource.Drawable.tick));
+                RunOnUiThread(() => _weekLabel.Text = "You have reached your weekly target!");
+            }
+
         }
 
         private void AddSampleData()

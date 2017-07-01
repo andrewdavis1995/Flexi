@@ -16,7 +16,7 @@ namespace Flexi.Assets.Controllers
     {
         public string FormatTime(TimeSpan time)
         {
-            return "This week: " + FormatNumber((int)time.TotalHours) + ":" + FormatNumber(time.Minutes) + ":" + FormatNumber(time.Seconds);
+            return FormatNumber((int)time.TotalHours) + ":" + FormatNumber(time.Minutes) + ":" + FormatNumber(time.Seconds);
         }
 
         private static string FormatNumber(int val)
