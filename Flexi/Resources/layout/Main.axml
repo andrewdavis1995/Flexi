@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="#54A4BE">
+    <GridLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:id="@+id/gridLayout1"
+        android:columnCount="2"
+        android:rowCount="1">
+        <Button
+            android:text="Sign In"
+            android:id="@+id/cmdIn"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_height="match_parent"
+            android:background="#3587A2"
+            android:layout_margin="10dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#DFDFEE" />
+        <Button
+            android:text="Sign Out"
+            android:id="@+id/cmdOut"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_height="match_parent"
+            android:background="#3587A2"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="#DFDFEE" />
+    </GridLayout>
+    <TextView
+        android:text="This week: 00:00:00"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTimeThisWeek"
+        android:textColor="#DFDFEE"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp" />
+</LinearLayout>

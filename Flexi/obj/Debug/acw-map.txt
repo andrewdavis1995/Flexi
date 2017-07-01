@@ -1,0 +1,4 @@
+Flexi.MainActivity, Flexi;md59d2fcc21cf47e3c505bb601db0da6f0e.MainActivity
+Flexi.MainActivity, Flexi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59d2fcc21cf47e3c505bb601db0da6f0e.MainActivity
+Flexi.MainActivity;md59d2fcc21cf47e3c505bb601db0da6f0e.MainActivity
+flexi.MainActivity;md59d2fcc21cf47e3c505bb601db0da6f0e.MainActivity
